@@ -1,6 +1,5 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const mongodbClient = require('mongodb').MongoClient ;
 const keys = require('./config/keys');
 const expressLayout= require("express-ejs-layouts")
 const mongoose = require('mongoose');
@@ -19,7 +18,7 @@ app.use('/', require('./routes/index'))
 app.use('/user', require('./routes/user'))
 
 
-mongodbClient.connect(keys.MongoURL,{ useNewUrlParser: true },(error,db )=>{
+mongoose.connect(keys.MongoURL,{ useNewUrlParser: true },(error,db )=>{
     if (error) throw error;
     console.log("connected");
 
