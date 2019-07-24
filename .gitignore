@@ -1,4 +1,4 @@
 node_modules/
 
-url.js
+config/keys.js
 .gitignore
