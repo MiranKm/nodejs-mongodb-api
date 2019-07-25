@@ -32,10 +32,13 @@ router.post('/register', (request, response) => {
         msg: "Passwords Can't be less then 5 Charecters "
     })
 
-    if (error > 0) {
+    if (error.length > 0) {
         response.render('register', {
           error,
-          userObject,
+          name:userObject.name,
+          email:userObject.email,
+          pass1:userObject.pass1,
+          pass2:userObject.pass2,
         });
     } else {
         response.send("Registerd")
