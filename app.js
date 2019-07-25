@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true , useNewUrlParser: true}));
 app.listen(8080,process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '127.0.0.1', () => console.log('Express server is runnig at port no : 8080'));
 
 app.use('/', require('./routes/index'))
-app.use('/user', require('./routes/user'))
+app.use('/user', require('./routes/users'))
 
 
 mongoose.connect(keys.MongoURL,{ useNewUrlParser: true },(error,db )=>{
