@@ -1,0 +1,5 @@
+<%- if(typeof error != 'undifined'){ %>
+    <%- error.forEach(function(error){ %>
+        <%= error.msg%>
+    <%- });%>
+<%- }%>
