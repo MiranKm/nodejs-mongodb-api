@@ -43,14 +43,15 @@ router.post('/register', (request, response) => {
             pass2: userObject.pass2,
         });
     } else {
-        response.send("Registerd")
         User.findOne({
             email: userObject.email,
         }).then(user => {
+            console.log(user);
+
             if (user) {
                 // because user exists
                 error.push({
-                    msg: "User exists"
+                    msg: "Email already exists"
                 })
                 response.render('register', {
                     error,
@@ -65,6 +66,7 @@ router.post('/register', (request, response) => {
                     email: userObject.email,
                     password: userObject.pass1
                 });
+
                 console.log(newUser);
                 response.send(newUser);
 
